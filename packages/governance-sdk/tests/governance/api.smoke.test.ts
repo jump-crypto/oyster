@@ -44,6 +44,7 @@ import {
   RealmConfigAccount,
   tryGetRealmConfig,
   getRealms,
+  withSetGovernanceDelegate,
 } from '../../src';
 
 import { withSetRealmConfig } from '../../src/governance/withSetRealmConfig';
@@ -404,6 +405,20 @@ test('setupRealm', async () => {
     ataPk,
     mintPk,
     tokenOwnerRecordPk,
+  );
+
+  await sendTransaction(connection, instructions, signers, wallet);
+  instructions = [];
+  signers = [];
+
+  withSetGovernanceDelegate(
+    instructions,
+    programId,
+    walletPk,
+    realmPk,
+    mintPk,
+    tokenOwnerRecordPk,
+    walletPk
   );
 
   await withUpdateProgramMetadata(instructions, programId, walletPk);

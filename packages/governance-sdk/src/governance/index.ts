@@ -30,3 +30,4 @@ export * from './withSetRealmAuthority';
 export * from './withSignOffProposal';
 export * from './withUpdateProgramMetadata';
 export * from './withWithdrawGoverningTokens';
+export * from './withSetGovernanceDelegate';

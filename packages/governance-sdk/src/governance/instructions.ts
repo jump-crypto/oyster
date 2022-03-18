@@ -66,6 +66,15 @@ export class WithdrawGoverningTokensArgs {
     GovernanceInstruction.WithdrawGoverningTokens;
 }
 
+export class SetGovernanceDelegateArgs {
+  instruction: GovernanceInstruction = GovernanceInstruction.SetGovernanceDelegate;
+  newGovernanceDelegate: PublicKey;
+
+  constructor(args: { newGovernanceDelegate: PublicKey }) {
+    this.newGovernanceDelegate = args.newGovernanceDelegate;
+  }
+}
+
 export class CreateGovernanceArgs {
   instruction: GovernanceInstruction = GovernanceInstruction.CreateGovernance;
   config: GovernanceConfig;

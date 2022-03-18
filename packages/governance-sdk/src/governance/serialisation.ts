@@ -29,6 +29,7 @@ import {
   VoteChoice,
   VoteKind,
   WithdrawGoverningTokensArgs,
+  SetGovernanceDelegateArgs,
 } from './instructions';
 import {
   AccountMetaData,
@@ -236,6 +237,16 @@ function createGovernanceSchema(programVersion: number) {
       {
         kind: 'struct',
         fields: [['instruction', 'u8']],
+      },
+    ],
+    [
+      SetGovernanceDelegateArgs,
+      {
+        kind: 'struct',
+        fields: [
+          ['instruction', 'u8'],
+          ['newGovernanceDelegate', 'pubkey'],
+        ],
       },
     ],
     [
